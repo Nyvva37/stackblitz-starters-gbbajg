@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>盒模型、背景、文字排版</title>
+    <style>
+        body{
+            width: 500px;
+            margin:0 auto;
+            padding: 0;
+        }
+        div{
+            background-image: linear-gradient(#e66465,#9198e5);
+            width: 200px;
+            height: 200px;
+            margin-top: 100px ;
+            margin-bottom: 4em;
+            margin-left: auto;
+            margin-right: auto;
+            border: 5px rgb(243, 214, 214) dashed;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 3px rgb(156, 141, 141);
+        }
+        div p{
+            margin: 0;
+            line-height: 200px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 500;
+            color: rgb(43, 44, 44);
+            font-family: "方正卡通简体";
+        }
+        .text{
+            text-indent: 2em;
+            line-height: 1.7;
+            font-family: "方正兰亭超细黑简体";
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+        span{
+            text-decoration: rgb(234, 161, 158) wavy underline;
+            background-color: #c5cbeb;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>2024健康平安</p>
+    </div>
+    <p class="text"> 
+    中医有四大经典著作，<span>《黄帝内经》《难经》《伤寒杂病论》和《神农本草经》</span>。其中，《黄帝内经》成书最早，内容最多，成为中国医学宝库的经典。
+    </p>
+</body>
+</html>
