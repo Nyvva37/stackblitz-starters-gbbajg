@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>武侠人物介绍</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            background-image: url('https://picnew13.photophoto.cn/20190430/jianyuehuahuiyulanhuazhongshizhongguofengbeijinghaibao-33134652_1.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            height: 100%;
+        }
+        #character-description {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 100px auto;
+            max-width: 600px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        #character-description h2 {
+            margin-top: 0;
+            color: #ffd700;
+        }
+        .button-container {
+            margin: 20px auto;
+            text-align: center;
+        }
+        .character-button {
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border: 1px solid #ddd;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: #333;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            outline: none;
+        }
+        .character-button:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .character-button:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #ffd700;
+        }
+    </style>
+</head>
+<body>
+    <div id="character-description">
+        <!-- 人物描述将通过JavaScript动态添加 -->
+    </div>
+    <div class="button-container">
+        <button onclick="changeCharacter(-1)">上一个人物</button>
+        <button onclick="changeCharacter(1)">下一个人物</button>
+    </div>
+
+    <script>
+        var characters = [
+            {
+                name: "张无忌",
+                origin: "武当派",
+                abilities: ["太极拳", "太极剑", "九阳神功"],
+                personality: "正直、善良、有领导力",
+                description: "张无忌是金庸笔下《倚天屠龙记》的主角，拥有卓越的武学天赋和正义感。"
+            },
+            {
+                name: "令狐冲",
+                origin: "华山派",
+                abilities: ["独孤九剑", "吸星大法"],
+                personality: "潇洒、不羁、重情重义",
+                description: "令狐冲是《笑傲江湖》中的主角，以其独步武林的剑法和不羁的性格著称。"
+            },
+            {
+                name: "黄蓉",
+                origin: "桃花岛",
+                abilities: ["打狗棒法", "落英神剑掌"],
+                personality: "聪明、机智、活泼",
+                description: "黄蓉是《射雕英雄传》中的重要人物，以其聪明才智和卓越的武功闻名。"
+            },
+            {
+                name: "乔峰",
+                origin: "丐帮",
+                abilities: ["降龙十八掌", "打狗棒法"],
+                personality: "豪迈、忠诚、悲壮",
+                description: "乔峰是《天龙八部》中的主角，以其豪迈的性格和强大的武功领导丐帮。"
+            },
+            // 可以继续添加更多人物
+        ];
+
+        var currentIndex = 0;
+
+        function displayCharacter(index) {
+            var character = characters[index];
+            document.getElementById('character-description').innerHTML = `
+                <h2>${character.name}</h2>
+                <p><strong>出身：</strong> ${character.origin}</p>
+                <p><strong>能力：</strong> ${character.abilities.join(', ')}</p>
+                <p><strong>性格：</strong> ${character.personality}</p>
+                <p><strong>简介：</strong> ${character.description}</p>
+            `;
+        }
+
+        function changeCharacter(step) {
+            currentIndex = (currentIndex + step + characters.length) % characters.length;
+            displayCharacter(currentIndex);
+        }
+
+        window.onload = function() {
+            displayCharacter(currentIndex); // 页面加载时显示第一个人物
+        };
+    </script>
+</body>
+</html>
